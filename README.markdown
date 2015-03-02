@@ -41,29 +41,7 @@ So, to put here a nice list. gzfuse is currently:
 All these limitations are to be fixed in the future if there is an use for it.
 
 
-Test case
---------
+Problems when installing under debian wheezy
+----------
 
-The test folder is linux-3.3.3. 40,358 items, totalling 445.2 MB.
-After gzip, 127.3 MB.
-
-    # compress all files
-    $ find linux-3.3.3-gz -type f -exec gzip {} \;
-    
-    # mount gzfuse folder
-    $ gzfuse.py linux-3.3.3-gz linux-3.3.3-gzfuse
-
-    # read all files
-    $ time find linux-3.3.3 -type f -exec cat {} \; > /dev/null
-
-    real	1m33.291s
-    user	0m7.132s
-    sys	0m28.132s
-
-    # read all files, transparent decompression
-    $ time find linux-3.3.3-gzfuse -type f -exec cat {} \; > /dev/null
-
-    real	1m59.485s
-    user	0m9.206s
-    sys	0m28.275s
-
+when python setup.py install crashes with "error: README: No such file or directory" you have to install fusepy by hand: pip install fusepy
